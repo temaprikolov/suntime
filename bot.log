@@ -1,0 +1,86 @@
+
+
+==================================================
+▶ Запуск (fix_bot.py): 2026-10-10 14:03:08
+==================================================
+🚀 Запуск бота SUNTIME SHOP...
+✅ База данных инициализирована
+✅ База данных готова
+✅ FSM: SqliteStorage (персистентный)
+✅ Обязательная подписка: @SUNTIMENEWS (-1002278339501)
+✅ handlers.py загружен
+✅ market.py загружен
+✅ admin.py загружен
+Traceback (most recent call last):
+  File "/bots/suntime_shop_bot/venv/lib/python3.12/site-packages/aiohttp/client.py", line 663, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/bots/suntime_shop_bot/venv/lib/python3.12/site-packages/aiohttp/connector.py", line 538, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/bots/suntime_shop_bot/venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1050, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/bots/suntime_shop_bot/venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1353, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/bots/suntime_shop_bot/venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1109, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/bots/suntime_shop_bot/venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 87, in start_connection
+    sock, _, _ = await _staggered.staggered_race(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/bots/suntime_shop_bot/venv/lib/python3.12/site-packages/aiohappyeyeballs/_staggered.py", line 165, in staggered_race
+    done = await _wait_one(
+           ^^^^^^^^^^^^^^^^
+  File "/bots/suntime_shop_bot/venv/lib/python3.12/site-packages/aiohappyeyeballs/_staggered.py", line 46, in _wait_one
+    return await wait_next
+           ^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/bots/suntime_shop_bot/venv/lib/python3.12/site-packages/aiogram/client/session/aiohttp.py", line 181, in make_request
+    async with session.post(
+  File "/bots/suntime_shop_bot/venv/lib/python3.12/site-packages/aiohttp/client.py", line 1360, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/bots/suntime_shop_bot/venv/lib/python3.12/site-packages/aiohttp/client.py", line 578, in _request
+    with timer:
+  File "/bots/suntime_shop_bot/venv/lib/python3.12/site-packages/aiohttp/helpers.py", line 749, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/bots/suntime_shop_bot/main.py", line 81, in <module>
+    asyncio.run(main())
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/bots/suntime_shop_bot/main.py", line 64, in main
+    await set_commands(bot)
+  File "/bots/suntime_shop_bot/main.py", line 22, in set_commands
+    await bot.set_my_commands(commands)
+  File "/bots/suntime_shop_bot/venv/lib/python3.12/site-packages/aiogram/client/bot.py", line 3655, in set_my_commands
+    return await self(call, request_timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/bots/suntime_shop_bot/venv/lib/python3.12/site-packages/aiogram/client/bot.py", line 488, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/bots/suntime_shop_bot/venv/lib/python3.12/site-packages/aiogram/client/session/base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/bots/suntime_shop_bot/venv/lib/python3.12/site-packages/aiogram/client/session/aiohttp.py", line 186, in make_request
+    raise TelegramNetworkError(method=method, message="Request timeout error")
+aiogram.exceptions.TelegramNetworkError: HTTP Client says - Request timeout error
+Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x741fe99bd610>

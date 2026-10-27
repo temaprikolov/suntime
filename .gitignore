@@ -1,0 +1,21 @@
+# Секреты — НИКОГДА не коммитить
+.env
+
+# Данные / БД
+data/
+*.db
+*.db.txt
+bot.log
+bot.pid
+restart.trigger
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Экспортированные файлы
+*.csv
+*.xlsx
+!requirements.txt
